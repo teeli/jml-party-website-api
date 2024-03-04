@@ -11,7 +11,7 @@ export const mapVisitors = (sheet: SheetData) => {
   // first row contains headers, ignore that from response
   const visitors = values.slice(1)
   return visitors.map((row: string[]) => ({
-    // TODO: Add support for hidden names based on user consent
-    handle: row[2],
+    handle: row[4] === '1' ? row[2] : '(hidden)',
+    hidden: row[4],
   }))
 }
