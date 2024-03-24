@@ -50,9 +50,7 @@ functions:
           path: visitors
           method: get
           cors:
-            origin:
-              - https://jml.party
-              - https://*.jml.party
+            origin: '*'
             headers: '*'
             cacheControl: 'max-age=300, s-maxage=300, proxy-revalidate'
     environment:

@@ -12,6 +12,9 @@ export const generateResponse = (
   headers: {
     Expires: formatRFC7231(addSeconds(new Date(), DEFAULT_TTL)),
     'Content-Type': 'application/json',
+    'Access-Control-Allow-Headers': '*',
+    'Access-Control-Allow-Methods': 'OPTIONS,GET',
+    'Access-Control-Allow-Origin': '*',
     'Cache-Control': `public, max-age=${DEFAULT_TTL}, s-maxage=${DEFAULT_TTL}, proxy-revalidate`,
     ...customHeaders,
   },
