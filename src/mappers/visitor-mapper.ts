@@ -11,9 +11,10 @@ export const mapVisitors = (sheet: SheetData) => {
   // first row contains headers, ignore that from response
   const visitors = values.slice(1)
   return visitors.map((row: string[]) => {
-    const hidden = row[4] !== '1'
+    const hidden = row[5] !== '1'
     return {
       handle: hidden ? '(hidden)' : row[2],
+      group: hidden ? undefined : row[3],
       hidden,
     }
   })
