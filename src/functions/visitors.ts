@@ -6,7 +6,7 @@ import { generateResponse } from '../utils/response'
 export const handler = async () => {
   const sheet = await getSpreadSheet({
     spreadsheetId: process.env.SHEET_ID,
-    range: 'Sheet1',
+    range: process.env.SHEET_NAME,
   })
 
   try {
