@@ -31,6 +31,9 @@ custom:
   apiPath:
     production: api.jml.party
     other: api-${self:provider.stage}.jml.party
+  createCustomDomain:
+    production: true
+    other: false
   customDomain:
     domainName: ${self:custom.apiPath.${self:provider.stage}, self:custom.apiPath.other}
     certificateName: '*.jml.party'
@@ -41,6 +44,7 @@ custom:
     securityPolicy: tls_1_2
     apiType: rest
     autoDomain: true
+    enabled: ${self:custom.createCustomDomain.${self:provider.stage}, self:custom.createCustomDomain.other}
 
 functions:
   visitors:
