@@ -11,6 +11,15 @@
   },
   "dependencies": {
     "@aws-sdk/client-ssm": "^3.525.0",
+    "@middy/core": "^5.3.2",
+    "@middy/http-content-encoding": "^5.3.2",
+    "@middy/http-content-negotiation": "^5.3.2",
+    "@middy/http-cors": "^5.3.2",
+    "@middy/http-error-handler": "^5.3.2",
+    "@middy/http-event-normalizer": "^5.3.2",
+    "@middy/http-header-normalizer": "^5.3.2",
+    "@middy/http-response-serializer": "^5.3.2",
+    "@middy/http-security-headers": "^5.3.2",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "date-fns": "^3.3.1",
@@ -29,6 +38,7 @@
     "typescript": "^5.3.3"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.137",
     "serverless-domain-manager": "^7.3.6",
     "serverless-esbuild": "^1.51.0",
     "serverless-offline": "^13.3.3"
