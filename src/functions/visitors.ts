@@ -1,16 +1,20 @@
 import middy from '@middy/core'
+import { APIGatewayEvent } from 'aws-lambda'
 
+import { getPartyConfig } from '../data-sources/parties'
 import { getSpreadSheet } from '../data-sources/sheets'
 import { mapVisitors } from '../mappers/visitor-mapper'
 import { defaultMiddlewares } from '../utils/middleware'
 
-const handlerFunction = async () => {
+const handlerFunction = async (event: APIGatewayEvent) => {
+  const partyConfig = getPartyConfig(event.pathParameters.party)
+
   const sheet = await getSpreadSheet({
-    spreadsheetId: process.env.SHEET_ID,
-    range: process.env.SHEET_NAME,
+    spreadsheetId: partyConfig.sheetId,
+    range: partyConfig.sheetName,
   })
 
-  return mapVisitors(sheet)
+  return mapVisitors(sheet, partyConfig.columns)
 }
 
 export const handler = middy().use(defaultMiddlewares).handler(handlerFunction)
