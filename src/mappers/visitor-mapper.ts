@@ -1,12 +1,8 @@
+import { ColumnConfig } from '../data-sources/parties'
 import { VisitorsNotFoundError } from '../errors/errors'
 import { SheetData } from '../types/sheets'
 
-const HANDLE_COL = 'Handle/Nickname'
-const GROUP_COL = 'Group'
-const HIDDEN_COL =
-  'Can we show your handle on a list of visitors on the jml.party website?'
-
-export const mapVisitors = (sheet: SheetData) => {
+export const mapVisitors = (sheet: SheetData, columns: ColumnConfig) => {
   const values = sheet.data.values
 
   if (!values || values.length === 0) {
@@ -17,10 +13,10 @@ export const mapVisitors = (sheet: SheetData) => {
   const headings = values[0]
   const visitors = values.slice(1)
   return visitors.map((row: string[]) => {
-    const hidden = row[headings.indexOf(HIDDEN_COL)] !== 'Yes'
+    const hidden = row[headings.indexOf(columns.hidden)] !== 'Yes'
     return {
-      handle: hidden ? '(hidden)' : row[headings.indexOf(HANDLE_COL)],
-      group: hidden ? undefined : row[headings.indexOf(GROUP_COL)],
+      handle: hidden ? '(hidden)' : row[headings.indexOf(columns.handle)],
+      group: hidden ? undefined : row[headings.indexOf(columns.group)],
       hidden,
     }
   })

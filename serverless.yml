@@ -57,9 +57,18 @@ functions:
             origin: '*'
             headers: '*'
             cacheControl: 'max-age=300, s-maxage=300, proxy-revalidate'
+      - http:
+          path: visitors/{party}
+          method: get
+          cors:
+            origin: '*'
+            headers: '*'
+            cacheControl: 'max-age=300, s-maxage=300, proxy-revalidate'
+          request:
+            parameters:
+              paths:
+                party: true
     environment:
-      SHEET_ID: 1yD6vkJDBYv0_TNpbLuRdFnlK8m6styZkui1EkHWXDu8
-      SHEET_NAME: Form Responses 1
       GOOGLE_AUTH_TYPE: /${self:service}/${self:provider.stage}/google-auth/type
       GOOGLE_AUTH_PROJECT_ID: /${self:service}/${self:provider.stage}/google-auth/project_id
       GOOGLE_AUTH_PRIVATE_KEY_ID: /${self:service}/${self:provider.stage}/google-auth/private_key_id

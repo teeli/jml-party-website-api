@@ -37,3 +37,16 @@ export class VisitorsNotFoundError extends BaseError {
     })
   }
 }
+
+export class PartyNotFoundError extends BaseError {
+  constructor({
+    message = 'Party not found',
+    ...constructorParameters
+  }: ConstructorParameters_ = {}) {
+    super({
+      ...constructorParameters,
+      statusCode: 404,
+      message,
+    })
+  }
+}
