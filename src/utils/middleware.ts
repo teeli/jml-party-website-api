@@ -14,6 +14,7 @@ import type { Options } from '@middy/http-cors'
 const getOrigin = (incomingOrigin: string, options: Options) => {
   const origins = [
     /^https:\/\/jml.party$/,
+    /^https:\/\/winter.jml.party$/,
     /^https:\/\/.*.vercel.app$/,
     /^http:\/\/localhost:\d*$/,
   ]
