@@ -11,3 +11,8 @@ google-auth.json
 
 # terraform directories
 .terraform
+
+# sst
+.sst
+.build
+sst-env.d.ts

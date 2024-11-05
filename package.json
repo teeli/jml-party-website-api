@@ -7,6 +7,11 @@
     "email": "teemu.lahti@gmail.com"
   },
   "scripts": {
+    "sst:dev": "sst dev",
+    "sst:build": "sst build",
+    "sst:deploy": "sst deploy",
+    "sst:remove": "sst remove",
+    "sst:console": "sst console",
     "deploy:dev": "node_modules/.bin/sls deploy --stage dev",
     "deploy:prod": "node_modules/.bin/sls deploy --stage production",
     "eslint": "eslint .",
@@ -14,7 +19,8 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "prepare": "husky",
-    "start": "node_modules/.bin/sls dev"
+    "start": "node_modules/.bin/sls dev",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@aws-sdk/client-ssm": "3.682.0",
@@ -34,9 +40,12 @@
     "@eslint/compat": "^1.2.2",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.14.0",
+    "@tsconfig/node20": "20.1.4",
     "@types/aws-lambda": "8.10.145",
     "@typescript-eslint/eslint-plugin": "8.13.0",
     "@typescript-eslint/parser": "8.13.0",
+    "aws-cdk-lib": "2.165.0",
+    "constructs": "10.4.2",
     "dotenv": "16.4.5",
     "eslint": "9.14.0",
     "eslint-config-prettier": "9.1.0",
@@ -50,6 +59,7 @@
     "lint-staged": "15.2.10",
     "serverless": "4.4.7",
     "serverless-domain-manager": "7.4.0",
+    "sst": "3.2.76",
     "ts-node": "10.9.2",
     "typescript": "5.6.3"
   },

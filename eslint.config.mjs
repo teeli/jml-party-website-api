@@ -31,6 +31,7 @@ export default [
       '**/package-lock.json',
       'eslint.config.mjs',
       '.lintstagedrc.mjs',
+      'sst-env.d.ts',
     ],
   },
   ...fixupConfigRules(
