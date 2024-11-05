@@ -1,5 +1,5 @@
 service: jmlparty-api
-frameworkVersion: 3.38.0
+frameworkVersion: 4.4.7
 useDotenv: true
 
 provider:
@@ -20,8 +20,6 @@ provider:
         - arn:aws:ssm:${aws:region}:${aws:accountId}:parameter/${self:service}/${self:provider.stage}/google-auth/*
 
 plugins:
-  - serverless-offline
-  - serverless-esbuild
   - serverless-domain-manager
 
 custom:
