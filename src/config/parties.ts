@@ -22,6 +22,15 @@ export const parties: Record<string, PartyConfig> = {
         'Can we show your handle on a list of partygoers on the winter.jml.party website?',
     },
   },
+  '68kinside25': {
+    sheetId: '1TquTl8TQQpH84iWUyLDWDUewMc2iMRby53Ts9cjO4vY',
+    sheetName: 'Form Responses 1',
+    columns: {
+      handle: 'Handle',
+      group: 'Group',
+      hidden: 'Can we show your handle in the visitor list on the website?',
+    },
+  },
 } as const
 
 export const defaultParty = parties.jmlparty24

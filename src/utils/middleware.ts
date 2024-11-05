@@ -15,7 +15,10 @@ const getOrigin = (incomingOrigin: string, options: Options) => {
   const origins = [
     /^https:\/\/jml.party$/,
     /^https:\/\/.*.jml.party$/,
+    /^https:\/\/68k-inside.party$/,
+    /^https:\/\/.*.68k-inside.party$/,
     /^https:\/\/.*.vercel.app$/,
+    /^https:\/\/.*.netlify.app$/,
     /^http:\/\/localhost:\d*$/,
   ]
   for (const origin of origins) {
