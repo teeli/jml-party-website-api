@@ -1,3 +1,5 @@
+org: jumalauta
+app: jmlparty-api
 service: jmlparty-api
 frameworkVersion: 4.4.7
 useDotenv: true
@@ -23,9 +25,6 @@ plugins:
   - serverless-domain-manager
 
 custom:
-  esbuild:
-    bundle: true
-    minify: false
   apiPath:
     production: api.jml.party
     other: api-${self:provider.stage}.jml.party
