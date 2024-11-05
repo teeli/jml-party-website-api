@@ -19,7 +19,7 @@ provider:
     - Effect: Allow
       Action: ssm:GetParameter*
       Resource:
-        - arn:aws:ssm:${aws:region}:${aws:accountId}:parameter/${self:service}/${self:provider.stage}/google-auth/*
+        - arn:aws:ssm:${aws:region}:${aws:accountId}:parameter/${self:service}/google-auth/*
 
 plugins:
   - serverless-domain-manager
@@ -66,48 +66,9 @@ functions:
               paths:
                 party: true
     environment:
-      GOOGLE_AUTH_TYPE: /${self:service}/${self:provider.stage}/google-auth/type
-      GOOGLE_AUTH_PROJECT_ID: /${self:service}/${self:provider.stage}/google-auth/project_id
-      GOOGLE_AUTH_PRIVATE_KEY_ID: /${self:service}/${self:provider.stage}/google-auth/private_key_id
-      GOOGLE_AUTH_PRIVATE_KEY: /${self:service}/${self:provider.stage}/google-auth/private_key
-      GOOGLE_AUTH_CLIENT_EMAIL: /${self:service}/${self:provider.stage}/google-auth/client_email
-      GOOGLE_AUTH_CLIENT_ID: /${self:service}/${self:provider.stage}/google-auth/client_id
-
-resources:
-  Resources:
-    GoogleAuthPrivateKeyIdSsmParameter:
-      Type: AWS::SSM::Parameter
-      Properties:
-        Name: /${self:service}/${self:provider.stage}/google-auth/private_key_id
-        Value: ${file(.config/google-auth-${self:provider.stage}.json):private_key_id}
-        Type: String
-    GoogleAuthTypeSsmParameter:
-      Type: AWS::SSM::Parameter
-      Properties:
-        Name: /${self:service}/${self:provider.stage}/google-auth/type
-        Value: ${file(.config/google-auth-${self:provider.stage}.json):type}
-        Type: String
-    GoogleAuthProjectIdSsmParameter:
-      Type: AWS::SSM::Parameter
-      Properties:
-        Name: /${self:service}/${self:provider.stage}/google-auth/project_id
-        Value: ${file(.config/google-auth-${self:provider.stage}.json):project_id}
-        Type: String
-    GoogleAuthPrivateKeySsmParameter:
-      Type: AWS::SSM::Parameter
-      Properties:
-        Name: /${self:service}/${self:provider.stage}/google-auth/private_key
-        Value: ${file(.config/google-auth-${self:provider.stage}.json):private_key}
-        Type: String
-    GoogleAuthClientEmailSsmParameter:
-      Type: AWS::SSM::Parameter
-      Properties:
-        Name: /${self:service}/${self:provider.stage}/google-auth/client_email
-        Value: ${file(.config/google-auth-${self:provider.stage}.json):client_email}
-        Type: String
-    GoogleAuthClientIdSsmParameter:
-      Type: AWS::SSM::Parameter
-      Properties:
-        Name: /${self:service}/${self:provider.stage}/google-auth/client_id
-        Value: ${file(.config/google-auth-${self:provider.stage}.json):client_id}
-        Type: String
+      GOOGLE_AUTH_TYPE: /${self:service}/google-auth/type
+      GOOGLE_AUTH_PROJECT_ID: /${self:service}/google-auth/project_id
+      GOOGLE_AUTH_PRIVATE_KEY_ID: /${self:service}/google-auth/private_key_id
+      GOOGLE_AUTH_PRIVATE_KEY: /${self:service}/google-auth/private_key
+      GOOGLE_AUTH_CLIENT_EMAIL: /${self:service}/google-auth/client_email
+      GOOGLE_AUTH_CLIENT_ID: /${self:service}/google-auth/client_id
