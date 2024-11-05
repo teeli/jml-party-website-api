@@ -8,3 +8,6 @@ jspm_packages
 google-auth.json
 .env
 .idea
+
+# terraform directories
+.terraform

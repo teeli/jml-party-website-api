@@ -7,7 +7,7 @@ const getParameter = async (name: string): Promise<string> => {
   const input = {
     // GetParameterRequest
     Name: name,
-    WithDecryption: false,
+    WithDecryption: true,
   }
   const command = new GetParameterCommand(input)
   const value = await ssmClient.send(command)
@@ -21,7 +21,7 @@ export const getGoogleCredentials = async (): Promise<JWTInput> => {
       getParameter(process.env.GOOGLE_AUTH_PROJECT_ID),
       getParameter(process.env.GOOGLE_AUTH_PRIVATE_KEY_ID),
       getParameter(process.env.GOOGLE_AUTH_PRIVATE_KEY),
-      getParameter(process.env.GOOGLE_AUTH_CLIENT_ID),
+      getParameter(process.env.GOOGLE_AUTH_CLIENT_EMAIL),
       getParameter(process.env.GOOGLE_AUTH_CLIENT_ID),
     ])
   const universeDomain = 'googleapis.com'
