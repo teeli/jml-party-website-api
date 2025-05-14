@@ -8,6 +8,7 @@ export type ColumnConfig = {
 }
 
 export type PartyConfig = {
+  enabled?: boolean
   sheetId: string
   sheetName: string
   columns: ColumnConfig
