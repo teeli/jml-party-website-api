@@ -11,6 +11,17 @@ export const parties: Record<string, PartyConfig> = {
         'Can we show your handle on a list of visitors on the jml.party website?',
     },
   },
+  jmlparty25: {
+    // TODO: Enable party when sheet is available
+    enabled: false,
+    sheetId: '',
+    sheetName: '',
+    columns: {
+      handle: '',
+      group: '',
+      hidden: '',
+    },
+  },
   jmlwinter25: {
     sheetId: '1tmZI9kN1AUh1B9aMpPdzlq8g1o3Nzq_5237fvKNNRz4',
     sheetName: 'Form Responses 1',
