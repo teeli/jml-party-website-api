@@ -5,11 +5,29 @@
     "lib": ["esnext"],
     "module": "commonjs",
     "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "lib",
+    "outDir": ".build",
+    "preserveConstEnums": true,
+    "preserveWatchOutput": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "sourceMap": true,
+    "strict": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
     "target": "esnext"
   },
-  "exclude": ["node_modules"]
+  "include": ["**/*.ts", "eslint.config.mjs"],
+  "exclude": [
+    ".esbuild",
+    ".build",
+    ".serverless",
+    "node_modules",
+    "node_modules/vite"
+  ]
 }

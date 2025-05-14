@@ -1,17 +1,34 @@
 import middy from '@middy/core'
-import { APIGatewayEvent } from 'aws-lambda'
+import {
+  APIGatewayProxyEventPathParameters,
+  APIGatewayProxyResult,
+} from 'aws-lambda'
+import { type Event as HTTPEventNormalizerEvent } from '@middy/http-event-normalizer'
 
 import { getPartyConfig } from '../data-sources/parties'
 import { getSpreadSheet } from '../data-sources/sheets'
 import { mapVisitors } from '../mappers/visitor-mapper'
-import { Visitor } from '../types/visitors'
+import { PartyID } from '../types/parties'
+import { jsonResponse } from '../utils/api-gateway'
 import { defaultMiddlewares } from '../utils/middleware'
 
-const handlerFunction = async (event: APIGatewayEvent): Promise<Visitor[]> => {
+export interface VisitorsAPIGatewayProxyEventPathParameters
+  extends APIGatewayProxyEventPathParameters {
+  party: PartyID | undefined
+}
+
+export interface VisitorsAPIGatewayProxyEvent
+  extends Omit<HTTPEventNormalizerEvent, 'pathParameters'> {
+  pathParameters: VisitorsAPIGatewayProxyEventPathParameters
+}
+
+const handlerFunction = async (
+  event: VisitorsAPIGatewayProxyEvent,
+): Promise<APIGatewayProxyResult> => {
   const partyConfig = getPartyConfig(event.pathParameters.party)
 
-  if (partyConfig.enabled === false) {
-    return []
+  if (!partyConfig.enabled) {
+    return jsonResponse([])
   }
 
   const sheet = await getSpreadSheet({
@@ -19,7 +36,8 @@ const handlerFunction = async (event: APIGatewayEvent): Promise<Visitor[]> => {
     range: partyConfig.sheetName,
   })
 
-  return mapVisitors(sheet, partyConfig.columns)
+  const visitors = mapVisitors(sheet, partyConfig.columns)
+  return jsonResponse(visitors)
 }
 
-export const handler = middy().use(defaultMiddlewares).handler(handlerFunction)
+export const handler = middy(handlerFunction).use(defaultMiddlewares())

@@ -11,3 +11,6 @@ google-auth.json
 
 # terraform directories
 .terraform
+
+# build artifacts
+.build

@@ -1,8 +1,6 @@
 import importPlugin from 'eslint-plugin-import';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
-import globals from 'globals'
-// import tsParser from '@typescript-eslint/parser'
 import eslint from '@eslint/js'
 import tseslint from 'typescript-eslint';
 
@@ -16,6 +14,7 @@ export default tseslint.config(
   {
     ignores: [
       '**/.serverless',
+      '**/.build',
       '**/node_modules',
       '**/.sst',
       '**/.env',

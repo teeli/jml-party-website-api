@@ -1,20 +1,8 @@
 import { defaultParty, parties } from '../config/parties'
 import { PartyNotFoundError } from '../errors/errors'
+import { PartyID, PartyConfig } from '../types/parties'
 
-export type ColumnConfig = {
-  handle: string
-  group: string
-  hidden: string
-}
-
-export type PartyConfig = {
-  enabled?: boolean
-  sheetId: string
-  sheetName: string
-  columns: ColumnConfig
-}
-
-export const getPartyConfig = (party?: string): PartyConfig => {
+export const getPartyConfig = (party?: PartyID): PartyConfig => {
   if (party) {
     if (!parties[party]) {
       throw new PartyNotFoundError()

@@ -1,5 +1,5 @@
-import { ColumnConfig } from '../data-sources/parties'
 import { VisitorsNotFoundError } from '../errors/errors'
+import { ColumnConfig } from '../types/parties'
 import { SheetData } from '../types/sheets'
 import { Visitor } from '../types/visitors'
 
@@ -16,12 +16,16 @@ export const mapVisitors = (
   // first row contains headers, ignore that from response
   const headings = values[0]
   const visitors = values.slice(1)
-  return visitors.map((row: string[]): Visitor => {
+  return visitors.map<Visitor>((row) => {
     const hidden = row[headings.indexOf(columns.hidden)] !== 'Yes'
     return {
-      handle: hidden ? '(hidden)' : row[headings.indexOf(columns.handle)],
-      group: hidden ? undefined : row[headings.indexOf(columns.group)],
+      handle: hidden
+        ? '(hidden)'
+        : (row[headings.indexOf(columns.handle)] as string),
+      group: hidden
+        ? undefined
+        : (row[headings.indexOf(columns.group)] as string),
       hidden,
-    }
+    } satisfies Visitor
   })
 }
