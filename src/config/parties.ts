@@ -31,14 +31,14 @@ export const parties = {
     domains: jmlpartyOrigins,
   },
   jmlparty25: {
-    // TODO: Enable party when sheet is available
-    enabled: false,
-    sheetId: '',
-    sheetName: '',
+    enabled: true,
+    sheetId: '10Qv6n_BC6T8VjY6QRgdvD__3pM9d2UwrjjXVdwYJTKM',
+    sheetName: 'Form Responses 1',
     columns: {
-      handle: '',
-      group: '',
-      hidden: '',
+      handle: 'Handle/Nickname',
+      group: 'Group',
+      hidden:
+        'Can we show your handle on a list of visitors on the jml.party website?',
     },
     domains: jmlpartyOrigins,
   },
