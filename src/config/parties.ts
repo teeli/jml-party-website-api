@@ -79,6 +79,17 @@ export const parties = {
     },
     domains: inside68kOrigins,
   },
+  '68kinside26': {
+    enabled: true,
+    sheetId: '1vfiPnxqBdURwO8tm9guTQTvS2UR7rOujLJG3DwJ2XsA',
+    sheetName: 'Form Responses 1',
+    columns: {
+      handle: 'Handle',
+      group: 'Group',
+      hidden: 'Can we show your handle in the visitor list on the website?',
+    },
+    domains: inside68kOrigins,
+  },
   alwaysDisabled: {
     enabled: false,
     sheetId: '',
