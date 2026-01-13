@@ -42,6 +42,18 @@ export const parties = {
     },
     domains: jmlpartyOrigins,
   },
+  jmlparty26: {
+    enabled: true,
+    sheetId: '1k52FeiFR1UBQQcUcC86VMlX7G4xTywcMb9v466I2Qkg',
+    sheetName: 'Form Responses 1',
+    columns: {
+      handle: 'Handle/Nickname',
+      group: 'Group',
+      hidden:
+        'Can we show your handle on a list of visitors on the jml.party website?',
+    },
+    domains: jmlpartyOrigins,
+  },
   jmlwinter25: {
     enabled: true,
     sheetId: '1tmZI9kN1AUh1B9aMpPdzlq8g1o3Nzq_5237fvKNNRz4',
