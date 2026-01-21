@@ -1,8 +1,8 @@
-import importPlugin from 'eslint-plugin-import';
+import importPlugin from 'eslint-plugin-import'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import eslint from '@eslint/js'
-import tseslint from 'typescript-eslint';
+import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
   eslint.configs.recommended,
@@ -33,7 +33,7 @@ export default tseslint.config(
 
     settings: {
       'import/parsers': {
-        '@typescript-eslint/parser': [ '.ts', '.tsx' ],
+        '@typescript-eslint/parser': ['.ts', '.tsx'],
       },
 
       'import/resolver': {
