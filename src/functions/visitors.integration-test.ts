@@ -27,7 +27,7 @@ const enabledParties = availableParties.filter((p) => parties[p].enabled)
 const disabledParties = availableParties.filter((p) => !parties[p].enabled)
 
 const createEvent = (
-  party: VisitorsAPIGatewayProxyEventPathParameters['party'],
+  party: VisitorsAPIGatewayProxyEventPathParameters['party'] = undefined,
   headers: APIGatewayProxyEventHeaders = {},
 ): VisitorsAPIGatewayProxyEvent =>
   ({

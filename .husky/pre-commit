@@ -1,2 +1,3 @@
+npm run compile
 npx sort-package-json
 npx lint-staged

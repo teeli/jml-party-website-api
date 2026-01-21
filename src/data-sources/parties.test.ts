@@ -1,7 +1,5 @@
 import { describe, it } from 'vitest'
 
-import { PartyID } from '../types/parties'
-
 import { getPartyConfig } from './parties'
 
 describe('parties data source', () => {
@@ -47,8 +45,6 @@ describe('parties data source', () => {
   })
 
   it('should throw on non-existing party config', async ({ expect }) => {
-    expect(() => getPartyConfig('asdfadfad' as PartyID)).toThrowError(
-      'Party not found',
-    )
+    expect(() => getPartyConfig('asdfadfad')).toThrowError('Party not found')
   })
 })

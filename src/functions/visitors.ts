@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-named-as-default
 import middy from '@middy/core'
 import {
   APIGatewayProxyEventPathParameters,
@@ -14,7 +15,7 @@ import { defaultMiddlewares } from '../utils/middleware'
 
 export interface VisitorsAPIGatewayProxyEventPathParameters
   extends APIGatewayProxyEventPathParameters {
-  party: PartyID | undefined
+  party: PartyID | string | undefined
 }
 
 export interface VisitorsAPIGatewayProxyEvent
