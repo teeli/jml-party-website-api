@@ -82,7 +82,9 @@ export const parties = {
   },
   jmlwinter27: {
     enabled: true,
-    sheetId: '1hzcD3R9auoNRAD1UuilCG86WNXz5L9J7QLSVJg0XMlU', // TODO: Define Sheet ID
+    // TODO: Temporarily reusing jmlwinter26's sheet — replace sheetId (and
+    // sheetName/columns if the new form differs) once the 2027 sheet exists.
+    sheetId: '1hzcD3R9auoNRAD1UuilCG86WNXz5L9J7QLSVJg0XMlU',
     sheetName: 'Form Responses 1',
     columns: {
       handle:
