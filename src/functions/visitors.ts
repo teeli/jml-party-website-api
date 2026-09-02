@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-named-as-default
 import middy from '@middy/core'
 import {
+  APIGatewayProxyEvent,
   APIGatewayProxyEventPathParameters,
   APIGatewayProxyResult,
 } from 'aws-lambda'
@@ -13,13 +14,14 @@ import { PartyID } from '../types/parties'
 import { jsonResponse } from '../utils/api-gateway'
 import { defaultMiddlewares } from '../utils/middleware'
 
-export interface VisitorsAPIGatewayProxyEventPathParameters
-  extends APIGatewayProxyEventPathParameters {
+export interface VisitorsAPIGatewayProxyEventPathParameters extends APIGatewayProxyEventPathParameters {
   party: PartyID | string | undefined
 }
 
-export interface VisitorsAPIGatewayProxyEvent
-  extends Omit<HTTPEventNormalizerEvent, 'pathParameters'> {
+export interface VisitorsAPIGatewayProxyEvent extends Omit<
+  HTTPEventNormalizerEvent<APIGatewayProxyEvent>,
+  'pathParameters'
+> {
   pathParameters: VisitorsAPIGatewayProxyEventPathParameters
 }
 
