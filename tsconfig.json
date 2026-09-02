@@ -2,6 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
     "lib": ["esnext"],
     "module": "commonjs",
     "moduleResolution": "node",
