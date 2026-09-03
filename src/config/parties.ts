@@ -69,7 +69,20 @@ export const parties = {
   },
   jmlwinter26: {
     enabled: true,
-    sheetId: '1hzcD3R9auoNRAD1UuilCG86WNXz5L9J7QLSVJg0XMlU', // TODO: Define Sheet ID
+    sheetId: '1hzcD3R9auoNRAD1UuilCG86WNXz5L9J7QLSVJg0XMlU',
+    sheetName: 'Form Responses 1',
+    columns: {
+      handle:
+        'Your demoscene handle (for contacting and party related announcements) ',
+      group: 'Your demoscene group',
+      hidden:
+        'Can we show your handle on a list of partygoers on the winter.jml.party website?',
+    },
+    domains: jmlwinterOrigins,
+  },
+  jmlwinter27: {
+    enabled: true,
+    sheetId: '1iRlwAxvS302MPZ_jJrtOH2-Vr3Px-I2mkLOqYfOq6F4',
     sheetName: 'Form Responses 1',
     columns: {
       handle:
